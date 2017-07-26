@@ -1,0 +1,12 @@
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\SuperMarket.dll
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\SuperMarket.pdb
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\EntityFramework.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\Newtonsoft.Json.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\System.Web.Mvc.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\System.Web.Razor.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\System.Web.WebPages.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\System.Web.WebPages.Deployment.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\bin\System.Web.WebPages.Razor.xml
+D:\Softwares\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csprojResolveAssemblyReference.cache
+D:\Softwares\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.dll
+D:\Softwares\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.pdb

@@ -1,0 +1,464 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Areas/Admin/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/css/ui.jqgrid.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/css/ace.min.css" rel="stylesheet" />
+
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Category Specification
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+            <div class="form-control">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                    @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                    @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
+
+                </div>
+                <div class="col-md-6">
+                    @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                    @Html.TextBox("StudentName", null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Category Name" })
+                </div>
+            </div>
+            <div class="row" style="height:15px !important;">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+
+                                &nbsp; &nbsp; &nbsp;
+                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.widget-body -->
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Data
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+        </div><!-- /.widget-body -->
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Sub-Category Specifications
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Category",new { @class = "form-control", @id = "form-field-select-1",
+                       style = "margin-bottom: 15px;"  })
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Sub-Category Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-6">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.TextBox("Sub-CategoryName", null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Sub-Category Name" })
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height:15px !important;">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+
+                                &nbsp; &nbsp; &nbsp;
+                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.widget-body -->
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Data
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+
+
+        </div><!-- /.widget-body -->
+    </div>
+
+</div>
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Product Specifications
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Category", new
+                   {
+                       @class = "form-control",
+                       @id = "form-field-select-1",
+                       style = "margin-bottom: 15px;"
+                   })
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Sub-Category Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Sub-Category", new
+{
+    @class = "form-control",
+    @id = "form-field-select-1",
+    style = "margin-bottom: 15px;"
+})
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Brand Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Brand", new
+                   {
+                       @class = "form-control",
+                       @id = "form-field-select-1",
+                       style = "margin-bottom: 15px;"
+                   })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Supplier Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Supplier", new
+                   {
+                       @class = "form-control",
+                       @id = "form-field-select-1",
+                       style = "margin-bottom: 15px;"
+                   })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Attribute Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Attribute", new
+                   {
+                       @class = "form-control",
+                       @id = "form-field-select-1",
+                       style = "margin-bottom: 15px;"
+                   })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Enter Attribute Value", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-7">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @*<input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />*@
+                        @Html.TextBox("tags", null, new { @class = "col-md-7", @id = "form-field-tags", placeholder = "Enter Attribute Name" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Product Name", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-7">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.TextBox("ProductName", null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Enter Product Name" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Product Price", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-7">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @Html.TextBox("ProductPrice", null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Product Price" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Product Image", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @*<input type="file" id="id-input-file-2" />*@
+                        @Html.TextBox("ProductPrice", null, new { @class = "col-md-7", @id = "id-input-file-2", placeholder = "Product Price", @type="file" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Product Quantity", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-7">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @*<input type="file" id="id-input-file-2" />*@
+                        @Html.TextBox("ProductQuantity", null, new { @class = "col-md-7", placeholder = "Product Quantity"})
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Product Rate", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-4">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @*<input type="file" id="id-input-file-2" />*@
+                        @Html.DropDownList("ProductRate", Enumerable.Empty<SelectListItem>(), "Select Rate", new
+                     {
+                         @class = "form-control",
+                         @id = "form-field-select-1",
+                         style = "margin-bottom: 15px;"
+                     })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-control">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                        @Html.Label("form-field-1", "Enter Rate Price", new { @class = "control-label no-padding-right" })
+                    </div>
+                    <div class="col-md-7">
+                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                        @*<input type="file" id="id-input-file-2" />*@
+                        @Html.TextBox("RatePrice", null, new { @class = "col-md-7", placeholder = "Rate Price" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+
+                                &nbsp; &nbsp; &nbsp;
+                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="widget-box transparent">
+        <div class="widget-header widget-header-flat">
+            <h4 class="widget-title lighter">
+                <i class="ace-icon fa fa-signal"></i>
+                Data
+            </h4>
+
+            <div class="widget-toolbar">
+                <a href="#" data-action="collapse">
+                    <i class="ace-icon fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+        </div><!-- /.widget-body -->
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        
+        $('#id-input-file-1 , #id-input-file-2').ace_file_input({
+            no_file: 'No File ...',
+            btn_choose: 'Choose',
+            btn_change: 'Change',
+            droppable: false,
+            onchange: null,
+            thumbnail: false //| true | large
+            //whitelist:'gif|png|jpg|jpeg'
+            //blacklist:'exe|php'
+            //onchange:''
+            //
+        });
+        var tag_input = $('#form-field-tags');
+        try {
+            tag_input.tag(
+              {
+                  placeholder: tag_input.attr('placeholder'),
+                  //enable typeahead by specifying the source array
+                  source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
+                  /**
+                  //or fetch data from database, fetch those that match "query"
+                  source: function(query, process) {
+                    $.ajax({url: 'remote_source.php?q='+encodeURIComponent(query)})
+                    .done(function(result_items){
+                      process(result_items);
+                    });
+                  }
+                  */
+              }
+            )
+
+            //programmatically add/remove a tag
+            var $tag_obj = $('#form-field-tags').data('tag');
+            $tag_obj.add('Programmatically Added');
+
+            var index = $tag_obj.inValues('some tag');
+            $tag_obj.remove(index);
+        }
+        catch (e) {
+            //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+            tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
+            //autosize($('#form-field-tags'));
+        }
+    });
+</script>

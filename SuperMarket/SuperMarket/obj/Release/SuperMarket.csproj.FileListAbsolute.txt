@@ -1,0 +1,12 @@
+E:\Demo\SuperMarket\SuperMarket\bin\SuperMarket.dll.config
+E:\Demo\SuperMarket\SuperMarket\bin\SuperMarket.dll
+E:\Demo\SuperMarket\SuperMarket\bin\SuperMarket.pdb
+E:\Demo\SuperMarket\SuperMarket\bin\System.Net.Http.Formatting.dll
+E:\Demo\SuperMarket\SuperMarket\bin\System.Web.Http.dll
+E:\Demo\SuperMarket\SuperMarket\bin\System.Web.Http.WebHost.dll
+E:\Demo\SuperMarket\SuperMarket\bin\System.Net.Http.Formatting.xml
+E:\Demo\SuperMarket\SuperMarket\bin\System.Web.Http.xml
+E:\Demo\SuperMarket\SuperMarket\bin\System.Web.Http.WebHost.xml
+E:\Demo\SuperMarket\SuperMarket\obj\Release\SuperMarket.csprojResolveAssemblyReference.cache
+E:\Demo\SuperMarket\SuperMarket\obj\Release\SuperMarket.dll
+E:\Demo\SuperMarket\SuperMarket\obj\Release\SuperMarket.pdb
