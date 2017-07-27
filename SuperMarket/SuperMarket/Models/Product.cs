@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace SuperMarket.Areas.Admin.Models
+namespace SuperMarket.Models
 {
     public class Product
     {

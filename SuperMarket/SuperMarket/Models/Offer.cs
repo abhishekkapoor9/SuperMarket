@@ -12,6 +12,6 @@ namespace SuperMarket.Models
         public string CategoryOn { get; set; }
         public string SubCategoryOn { get; set; }
         public string ProductOn { get; set; }
-        public int discount% { get; set; }
+        public int discount { get; set; }
     }
 }

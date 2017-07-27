@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SuperMarket.Areas.Admin.Models
+namespace SuperMarket.Models
 {
     public class Attribute
     {
