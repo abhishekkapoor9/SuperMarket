@@ -34,3 +34,15 @@ E:\Demo\SuperMarket\SuperMarket\bin\System.Web.Http.WebHost.xml
 E:\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.dll
 E:\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.pdb
 E:\Demo\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csprojResolveAssemblyReference.cache
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csprojResolveAssemblyReference.cache
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\obj\Debug\SuperMarket.dll
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\obj\Debug\SuperMarket.pdb
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\SuperMarket.dll.config
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\SuperMarket.dll
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\SuperMarket.pdb
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Net.Http.Formatting.dll
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Web.Http.dll
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Web.Http.WebHost.dll
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Net.Http.Formatting.xml
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Web.Http.xml
+E:\Ecom\SuperMarket\SuperMarket\SuperMarket\bin\System.Web.Http.WebHost.xml

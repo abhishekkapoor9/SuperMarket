@@ -46,10 +46,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -66,9 +74,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -138,10 +143,10 @@
     <Compile Include="Areas\Admin\Controllers\OfferController.cs" />
     <Compile Include="Areas\Admin\Controllers\OfferTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RateController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Areas\User\Controllers\CategoryController.cs" />
     <Compile Include="Areas\User\Controllers\Default1Controller.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="DbContext1\EComDBEntities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,9 +156,12 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerOrder.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Offer.cs" />
+    <Compile Include="Models\OfferType.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAvailability.cs" />
+    <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -291,6 +299,7 @@
     <Content Include="Areas\Admin\js\jquery.dataTables.bootstrap.min.js" />
     <Content Include="Areas\Admin\js\jquery.dataTables.min.js" />
     <Content Include="Areas\Admin\js\jquery.easypiechart.min.js" />
+    <Content Include="Areas\Admin\js\jquery.flot.min.js" />
     <Content Include="Areas\Admin\js\jquery.flot.pie.min.js" />
     <Content Include="Areas\Admin\js\jquery.flot.resize.min.js" />
     <Content Include="Areas\Admin\js\jquery.gritter.min.js" />
@@ -312,6 +321,7 @@
     <Content Include="Areas\Admin\js\select2.min.js" />
     <Content Include="Areas\Admin\js\spin.js" />
     <Content Include="Areas\Admin\js\spinbox.min.js" />
+    <Content Include="Areas\Admin\js\tree.min.js" />
     <Content Include="Areas\Admin\js\wizard.min.js" />
     <Content Include="Areas\Admin\swf\flashExport.swf" />
     <Content Include="Areas\js\bootstrap.min.js" />
@@ -581,7 +591,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Scripts\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Controllers\" />
