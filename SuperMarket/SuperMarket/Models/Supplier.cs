@@ -18,6 +18,7 @@ namespace SuperMarket.Models
         public int SupplierId { get; set; }
         [Required]
         public string SupplierNmae { get; set; }
+        [Required]
         public string Address { get; set; }
         public string Description{ get; set; }
         public string mobileNumber { get; set; }
