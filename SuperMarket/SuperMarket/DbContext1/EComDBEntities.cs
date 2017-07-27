@@ -7,7 +7,7 @@ using SuperMarke.Models;
 
 namespace SuperMarket.Models
 {
-    public partial class EComDBEntities : DbContext
+    public class EComDBEntities : DbContext
     {
         public virtual DbSet<Attribute> attributes { get; set; }
         public virtual DbSet<Brand> brands { get; set; }
@@ -23,21 +23,7 @@ namespace SuperMarket.Models
         public virtual DbSet<SubCategory> subcategories { get; set; }
         public virtual DbSet<Supplier> suppliers { get; set; }
 
-
     }
-    class Program
-    {
-   
-        //create DBContext object
-        using (var dbCtx = new EComDBEntities())
-        {
-            //Add Student object into Students DBset
-            dbCtx.Students.Add(newStudent);
-
-            // call SaveChanges method to save student into database
-            dbCtx.SaveChanges();
-        }
     
-}
 }
 
