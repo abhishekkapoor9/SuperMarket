@@ -5,7 +5,7 @@ namespace SuperMarket.Models
 {
     public partial class EComDBEntities : DbContext
     {
-        public EComDBEntities():base("onlineshopping")
+        public EComDBEntities()
             {
             }
 
