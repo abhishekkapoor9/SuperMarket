@@ -1,15 +1,18 @@
 ﻿using System.Data.Entity;
-using SuperMarke.Models;
-
+using SuperMarket.Models;
+using System;
+using System.Data;
+using SuperMarket;
 namespace SuperMarket.Models
 {
-    public partial class EComDBEntities : DbContext
+    public class EComDBEntity : DbContext
     {
-        public EComDBEntities()
+        public EComDBEntity()
             {
             }
 
         public virtual DbSet<Attribute> attributes { get; set; }
+        public virtual DbSet<Category> categories { get; set; }
         public virtual DbSet<Brand> brands { get; set; }
         public virtual DbSet<Customer> customers { get; set; }
         public virtual DbSet<CustomerOrder> customerorders { get; set; }

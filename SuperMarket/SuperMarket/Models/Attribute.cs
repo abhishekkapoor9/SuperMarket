@@ -9,7 +9,7 @@ namespace SuperMarket.Models
     {
         public int AttributeId { get; set; }
         public string AttributeName { get; set; }
-        public int AttributeUnit { get; set; }
+        public string AttributeValues { get; set; }
        
     }
 }
