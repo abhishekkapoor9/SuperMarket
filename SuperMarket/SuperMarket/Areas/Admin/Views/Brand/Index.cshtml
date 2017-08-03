@@ -14,7 +14,7 @@
     if (ViewData["Status"].ToString() == "Success")
     {
         <div class="success alert-success alert-dismissable fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @*<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>*@
             <strong>Success!</strong> Saved to Database Successfully.
         </div>
     }
@@ -39,7 +39,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
@@ -80,9 +79,8 @@
 <script src="~/Scripts/jquery-ui-1.10.0.js"></script>
 <script src="~/Scripts/i18n/grid.locale-en.js"></script>
 <script src="~/Scripts/jquery.jqGrid.min.js"></script>
-<script>
+<script type="text/javascript">
 $(function () {
-
     $("#jqGrid").jqGrid({
         url: 'GetBrands',
         datatype: 'json',

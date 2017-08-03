@@ -21,7 +21,7 @@ namespace SuperMarket.Areas.Admin.Controllers
         public ActionResult Index(Models.Attribute model)
         {
 
-            using (EComDBEntity entities = new EComDBEntity())
+            using (EComsDBEntity entities = new EComsDBEntity())
             {
                 entities.attributes.Add(model);
                 entities.SaveChanges();
@@ -32,7 +32,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public JsonResult GetAttributes(string sidx, string sort, int page, int rows)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             sort = (sort == null) ? "" : sort;
             int pageIndex = Convert.ToInt32(page) - 1;
             int pageSize = rows;
@@ -69,7 +69,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public string Edit(Supplier Model)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             string msg;
             try
             {
@@ -93,7 +93,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public string Delete(string Id)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             Supplier student = db.suppliers.Find(Id);
             db.suppliers.Remove(student);
             db.SaveChanges();

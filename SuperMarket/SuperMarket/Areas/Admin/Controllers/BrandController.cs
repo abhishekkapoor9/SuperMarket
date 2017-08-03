@@ -10,7 +10,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 {
     public class BrandController : Controller
     {
-        //
+        //s
         // GET: /Admin/Brand/
 
         public ActionResult Index()
@@ -24,7 +24,7 @@ namespace SuperMarket.Areas.Admin.Controllers
         {
             try
             {
-                using (EComDBEntity entities = new EComDBEntity())
+                using (EComsDBEntity entities = new EComsDBEntity())
                 {
                     entities.brands.Add(model);
                     entities.SaveChanges();
@@ -45,7 +45,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public JsonResult GetBrands(string sidx, string sort, int page, int rows)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             sort = (sort == null) ? "" : sort;
             int pageIndex = Convert.ToInt32(page) - 1;
             int pageSize = rows;
@@ -81,7 +81,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public string Edit(Brand Model)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             string msg;
             try
             {
@@ -105,7 +105,7 @@ namespace SuperMarket.Areas.Admin.Controllers
 
         public string Delete(string Id)
         {
-            EComDBEntity db = new EComDBEntity();
+            EComsDBEntity db = new EComsDBEntity();
             Supplier student = db.suppliers.Find(Id);
             db.suppliers.Remove(student);
             db.SaveChanges();

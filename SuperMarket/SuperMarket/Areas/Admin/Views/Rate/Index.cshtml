@@ -2,11 +2,27 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@model SuperMarket.Models.Rate
+
 <link href="~/Areas/Admin/css/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/font-awesome.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/ui.jqgrid.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/ace.min.css" rel="stylesheet" />
-
+@using (@Html.BeginForm("Index", "Rate", FormMethod.Post))
+{
+    if (ViewData["Status"].ToString() == "Success")
+    {
+        <div class="success alert-success alert-dismissable fade in">
+            @*<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>*@
+            <strong>Success!</strong> Saved to Database Successfully.
+        </div>
+    }
+    if (ViewData["Status"].ToString() == "Fail")
+    {
+        <div class="alert alert-danger  alert-dismissable fade in">
+            <strong>Warning!</strong> Error in Saving Value.
+        </div>
+    }
 <div class="col-sm-12">
     <div class="widget-box transparent">
         <div class="widget-header widget-header-flat">
@@ -32,7 +48,7 @@
                 </div>
                 <div class="col-md-6">
                     @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                    @Html.TextBox("RateBy", null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Rate By" })
+                    @Html.TextBoxFor(m => m.RateName, null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Rate By" })
                 </div>
             </div>
             <div class="row" style="height:15px !important;">
@@ -41,10 +57,10 @@
                     <div class="clearfix form-actions">
                         <div class="col-md-offset-3 col-md-12">
                             <div class="col-md-offset-3 col-md-9">
-                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+                                <input type="submit" value="Submit" class="btn btn-info" onclick='' />
 
                                 &nbsp; &nbsp; &nbsp;
-                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                                <input type="reset" value="Reset" class="btn btn-info" onclick='' />
                             </div>
                         </div>
                     </div>
@@ -53,6 +69,7 @@
         </div><!-- /.widget-body -->
     </div>
 </div>
+
 <div class="col-sm-12">
     <div class="widget-box transparent">
         <div class="widget-header widget-header-flat">
@@ -68,6 +85,71 @@
             </div>
         </div>
         <div class="widget-body">
+            <table id="jqGrid"></table>
+            <div id="jqControls"></div>
         </div><!-- /.widget-body -->
     </div>
 </div>
+}
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Areas/Admin/js/jquery.maskedinput.min.js"></script>
+<script src="~/Areas/Admin/js/ace-extra.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("#jqGrid").jqGrid({
+        url: 'GetRates',
+        datatype: 'json',
+        mtype: 'Get',
+        colNames: ['RateId', 'RateName'],
+        colModel: [
+            { key: true, hidden: false, name: 'RateId', index: 'RateId', editable: true },
+            { key: false, name: 'RateName', index: 'RateName', editable: true }
+        ],
+        pager: jQuery('#jqControls'),
+        rowNum: 10,
+        rowList: [10, 20, 30, 40, 50],
+        height: '100%',
+        viewrecords: true,
+        caption: 'Supplier Records',
+        emptyrecords: 'No Rate Records are Available to Display',
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            Id: "0"
+        },
+        autowidth: true,
+        multiselect: false
+    }).navGrid('#jqControls', { edit: true, add:false, del: true, search: false, refresh: true },
+        {
+            zIndex: 100,
+            url: "Edit",
+            closeOnEscape: true,
+            closeAfterEdit: true,
+            recreateForm: true,
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        },
+        {
+            zIndex: 100,
+            url: "Delete",
+            closeOnEscape: true,
+            closeAfterDelete: true,
+            recreateForm: true,
+            msg: "Are you sure you want to delete Student... ? ",
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        });
+});
+</script>

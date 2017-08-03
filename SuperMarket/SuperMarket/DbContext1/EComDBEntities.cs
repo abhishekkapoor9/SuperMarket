@@ -5,9 +5,9 @@ using System.Data;
 using SuperMarket;
 namespace SuperMarket.Models
 {
-    public class EComDBEntity : DbContext
+    public class EComsDBEntity : DbContext
     {
-        public EComDBEntity()
+        public EComsDBEntity(): base("EfqeDbContext")
             {
             }
 
@@ -18,7 +18,7 @@ namespace SuperMarket.Models
         public virtual DbSet<CustomerOrder> customerorders { get; set; }
         public virtual DbSet<Login> logins { get; set; }
         public virtual DbSet<Offer> offers { get; set; }
-        public virtual DbSet<OfferType> Order { get; set; }
+        public virtual DbSet<OfferType> Offertypes { get; set; }
         public virtual DbSet<Order> orders { get; set; }
         public virtual DbSet<Product> products { get; set; }
         public virtual DbSet<ProductAvailability> produtAvailabilitys { get; set; }
