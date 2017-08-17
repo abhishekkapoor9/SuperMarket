@@ -2,421 +2,405 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+@model SuperMarket.ViewModels.CategoryViewModel
 
 <link href="~/Areas/Admin/css/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/font-awesome.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/ui.jqgrid.min.css" rel="stylesheet" />
 <link href="~/Areas/Admin/css/ace.min.css" rel="stylesheet" />
+@using (@Html.BeginForm("Index", "Category", FormMethod.Post))
+{
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Category Specification
+                </h4>
 
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Category Specification
-            </h4>
-
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
-            </div>
-        </div>
-        <div class="widget-body">
-            <div class="form-control">
-                <div class="col-md-3"></div>
-                <div class="col-md-2">
-                    @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                    @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                    @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
-
-                </div>
-                <div class="col-md-6">
-                    @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                    @Html.TextBox("StudentName", null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Category Name" })
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
                 </div>
             </div>
-            <div class="row" style="height:15px !important;">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="clearfix form-actions">
-                        <div class="col-md-offset-3 col-md-12">
-                            <div class="col-md-offset-3 col-md-9">
-                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
-
-                                &nbsp; &nbsp; &nbsp;
-                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.widget-body -->
-    </div>
-</div>
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Data
-            </h4>
-
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
-            </div>
-        </div>
-        <div class="widget-body">
-        </div><!-- /.widget-body -->
-    </div>
-</div>
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Sub-Category Specifications
-            </h4>
-
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
-            </div>
-        </div>
-        <div class="widget-body">
-            <div class="row">
+            <div class="widget-body">
                 <div class="form-control">
                     <div class="col-md-3"></div>
                     <div class="col-md-2">
                         @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
                         @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Category",new { @class = "form-control", @id = "form-field-select-1",
-                       style = "margin-bottom: 15px;"  })
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Sub-Category Name", new { @class = "control-label no-padding-right" })
+                        @Html.LabelFor(m => m.CategoryName, "CategoryName", new { @class = "control-label no-padding-right" })
+
                     </div>
                     <div class="col-md-6">
                         @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.TextBox("Sub-CategoryName", null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Sub-Category Name" })
+                        @Html.TextBoxFor(m => m.CategoryName, null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Category Name" })
                     </div>
                 </div>
-            </div>
-            <div class="row" style="height:15px !important;">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="clearfix form-actions">
-                        <div class="col-md-offset-3 col-md-12">
-                            <div class="col-md-offset-3 col-md-9">
-                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+                <div class="row" style="height:15px !important;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-12">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <input type="submit" value="Submit" name="submit_category" class="btn btn-info" onclick='' />
 
-                                &nbsp; &nbsp; &nbsp;
-                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                                    &nbsp; &nbsp; &nbsp;
+                                    <input type="reset" value="Reset" name="reset_category" class="btn btn-info" onclick='' />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </div><!-- /.widget-body -->
-    </div>
-</div>
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Data
-            </h4>
-
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
-            </div>
+            </div><!-- /.widget-body -->
         </div>
-        <div class="widget-body">
-
-
-        </div><!-- /.widget-body -->
     </div>
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Data
+                </h4>
 
-</div>
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Product Specifications
-            </h4>
-
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
             </div>
+            <div class="widget-body">
+                <table id="jqGrid_category"></table>
+                <div id="jqControls_category"></div>
+            </div><!-- /.widget-body -->
         </div>
-        <div class="widget-body">
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Category Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Category", new
-                   {
-                       @class = "form-control",
-                       @id = "form-field-select-1",
-                       style = "margin-bottom: 15px;"
-                   })
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Sub-Category Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Sub-Category", new
-{
-    @class = "form-control",
-    @id = "form-field-select-1",
-    style = "margin-bottom: 15px;"
-})
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Brand Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Brand", new
-                   {
-                       @class = "form-control",
-                       @id = "form-field-select-1",
-                       style = "margin-bottom: 15px;"
-                   })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Supplier Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Supplier", new
-                   {
-                       @class = "form-control",
-                       @id = "form-field-select-1",
-                       style = "margin-bottom: 15px;"
-                   })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Attribute Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.DropDownList("parent", Enumerable.Empty<SelectListItem>(), "Select Attribute", new
-                   {
-                       @class = "form-control",
-                       @id = "form-field-select-1",
-                       style = "margin-bottom: 15px;"
-                   })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Enter Attribute Value", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-7">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @*<input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />*@
-                        @Html.TextBox("tags", null, new { @class = "col-md-7", @id = "form-field-tags", placeholder = "Enter Attribute Name" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Product Name", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-7">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.TextBox("ProductName", null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Enter Product Name" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Product Price", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-7">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @Html.TextBox("ProductPrice", null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Product Price" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Product Image", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @*<input type="file" id="id-input-file-2" />*@
-                        @Html.TextBox("ProductPrice", null, new { @class = "col-md-7", @id = "id-input-file-2", placeholder = "Product Price", @type="file" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Product Quantity", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-7">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @*<input type="file" id="id-input-file-2" />*@
-                        @Html.TextBox("ProductQuantity", null, new { @class = "col-md-7", placeholder = "Product Quantity"})
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Product Rate", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-4">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @*<input type="file" id="id-input-file-2" />*@
-                        @Html.DropDownList("ProductRate", Enumerable.Empty<SelectListItem>(), "Select Rate", new
-                     {
-                         @class = "form-control",
-                         @id = "form-field-select-1",
-                         style = "margin-bottom: 15px;"
-                     })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-control">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
-                        @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
-                        @Html.Label("form-field-1", "Enter Rate Price", new { @class = "control-label no-padding-right" })
-                    </div>
-                    <div class="col-md-7">
-                        @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
-                        @*<input type="file" id="id-input-file-2" />*@
-                        @Html.TextBox("RatePrice", null, new { @class = "col-md-7", placeholder = "Rate Price" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="clearfix form-actions">
-                        <div class="col-md-offset-3 col-md-12">
-                            <div class="col-md-offset-3 col-md-9">
-                                <input type="button" value="Submit" class="btn btn-info" onclick='' />
+    </div>
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Sub-Category Specifications
+                </h4>
 
-                                &nbsp; &nbsp; &nbsp;
-                                <input type="button" value="Reset" class="btn btn-info" onclick='' />
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.LabelFor(m => m.CategoryName, "Category Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.CategoryName, new SelectList(ViewBag.selectGrouList, "CategoryId", "CategoryName", new { @id = "dropdown" }), "Select Category", new { @class = "form-control", @id = "form-field-select-1", style = "margin-bottom: 15px;" })
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.LabelFor(m => m.SubCategoryName, "Sub-Category Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-6">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.TextBoxFor(m => m.SubCategoryName, null, new { @class = "col-md-6", @id = "form-field-1", placeholder = "Sub-Category Name" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height:15px !important;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-12">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <input type="submit" value="Submit" name="submit_subcategory" class="btn btn-info" onclick='' />
+                                    &nbsp; &nbsp; &nbsp;
+                                    <input type="reset" value="Reset" name="reset_subcategory" class="btn btn-info" onclick='' />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
-            </div>
+            </div><!-- /.widget-body -->
         </div>
     </div>
-</div>
-<div class="col-sm-12">
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-flat">
-            <h4 class="widget-title lighter">
-                <i class="ace-icon fa fa-signal"></i>
-                Data
-            </h4>
 
-            <div class="widget-toolbar">
-                <a href="#" data-action="collapse">
-                    <i class="ace-icon fa fa-chevron-up"></i>
-                </a>
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Data
+                </h4>
+
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <table id="jqGrid_sub_category"></table>
+                <div id="jqControls_sub_subcategory"></div>
+            </div><!-- /.widget-body -->
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Product Specifications
+                </h4>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.LabelFor(m => m.CategoryName, "Category Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.CategoryName, new SelectList(ViewBag.selectGrouList, "CategoryId", "CategoryName", new { @id = "dropdown" }), "Select Category", new { @class = "form-control", style = "margin-bottom: 15px;" })
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.LabelFor(m => m.SubCategoryName, "Sub-Category Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.SubCategory, Enumerable.Empty<SelectListItem>(), "Select SubCategory", new { @class = "form-control",@id= "subdropdown",  style = "margin-bottom: 15px;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Brand Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.BrandName, new SelectList(ViewBag.selectbrandsList, "BrandId", "BrandName", new { @id = "dropdown" }), "Select Brand", new { @class = "form-control", @id = "form-field-select-1", style = "margin-bottom: 15px;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Supplier Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.SupplierNmae, new SelectList(ViewBag.selectSupplierList, "SupplierId", "SupplierNmae", new { @id = "dropdown" }), "Select Supplier", new { @class = "form-control", @id = "form-field-select-1", style = "margin-bottom: 15px;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Attribute Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.DropDownListFor(m => m.AttributeName, new SelectList(ViewBag.selectattributeList, "CategoryId", "CategoryName", new { @id = "dropdown" }), "Select Attribute", new { @class = "form-control", @id = "form-field-select-1", style = "margin-bottom: 15px;" })
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Enter Attribute Value", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-7">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @*<input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />*@
+                            @Html.TextBoxFor(m => m.AttributeValues, null, new { @class = "col-md-7", @id = "form-field-tags", placeholder = "Enter Attribute Name" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Product Name", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-7">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.TextBoxFor(m => m.ProductName, null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Enter Product Name" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Product Price", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-7">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @Html.TextBoxFor(m => m.Price, null, new { @class = "col-md-7", @id = "form-field-1", placeholder = "Product Price" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Product Image", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @*<input type="file" id="id-input-file-2" />*@
+                            @Html.TextBox("ProductImage", null, new { @class = "col-md-7", @id = "id-input-file-2", @type = "file" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Product Quantity", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-7">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @*<input type="file" id="id-input-file-2" />*@
+                            @Html.TextBoxFor(m => m.ProductQuantity, null, new { @class = "col-md-7", placeholder = "Product Quantity" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Product Rate", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-4">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @*<input type="file" id="id-input-file-2" />*@
+                            @Html.DropDownListFor(m => m.RateName, new SelectList(ViewBag.selectrateList, "RateId", "RateName", new { @id = "dropdown" }), "Select Rate", new
+                       {
+                           @class = "form-control",
+                           @id = "form-field-select-1",
+                           style = "margin-bottom: 15px;"
+                       })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
+                            @*  <label class="control-label" for="form-field-1"> Brand Name </label>*@
+                            @*  <label class="control-label no-padding-right" for="form-field-1"> Brand Name </label>*@
+                            @Html.Label("form-field-1", "Enter Rate Price", new { @class = "control-label no-padding-right" })
+                        </div>
+                        <div class="col-md-7">
+                            @* <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />*@
+                            @*<input type="file" id="id-input-file-2" />*@
+                            @Html.TextBoxFor(m => m.RatePrice, null, new { @class = "col-md-7", placeholder = "Rate Price" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-12">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <input type="submit" value="Submit" name="submit_product" class="btn btn-info"/> 
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <input type="reset" value="Reset" name="reset_product" class="btn btn-info" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
             </div>
         </div>
-        <div class="widget-body">
-        </div><!-- /.widget-body -->
     </div>
-</div>
+    <div class="col-sm-12">
+        <div class="widget-box transparent">
+            <div class="widget-header widget-header-flat">
+                <h4 class="widget-title lighter">
+                    <i class="ace-icon fa fa-signal"></i>
+                    Data
+                </h4>
+
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <table id="jqGrid_product"></table>
+                <div id="jqControls_product"></div>
+            </div><!-- /.widget-body -->
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Areas/Admin/js/jquery.maskedinput.min.js"></script>
+<script src="~/Areas/Admin/js/ace-extra.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
 <script type="text/javascript">
     jQuery(function ($) {
-        
         $('#id-input-file-1 , #id-input-file-2').ace_file_input({
             no_file: 'No File ...',
             btn_choose: 'Choose',
@@ -461,4 +445,201 @@
             //autosize($('#form-field-tags'));
         }
     });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jqGrid_category").jqGrid({
+            url: 'GetCategory',
+            datatype: 'json',
+            mtype: 'Get',
+            colNames: ['CategoryId', 'CategoryName'],
+            colModel: [
+                { key: true, hidden: false, name: 'CategoryId', index: 'CategoryId', editable: true },
+                { key: false, name: 'CategoryName', index: 'CategoryName', editable: true }
+            ],
+            pager: jQuery('#jqControls_category'),
+            rowNum: 10,
+            rowList: [10, 20, 30, 40, 50],
+            height: '100%',
+            viewrecords: true,
+            caption: 'Supplier Records',
+            emptyrecords: 'No Supplier Records are Available to Display',
+            jsonReader: {
+                root: "rows",
+                page: "page",
+                total: "total",
+                records: "records",
+                repeatitems: false,
+                Id: "0"
+            },
+            autowidth: true,
+            multiselect: false
+        }).navGrid('#jqControls_category', { edit: true, add: false, del: true, search: false, refresh: true },
+            {
+                zIndex: 100,
+                url: "EditCategory",
+                closeOnEscape: true,
+                closeAfterEdit: true,
+                recreateForm: true,
+                afterComplete: function (response) {
+                    if (response.responseText) {
+                        alert(response.responseText);
+                    }
+                }
+            }, {},
+            {
+                zIndex: 100,
+                url: "DeleteCategory",
+                closeOnEscape: true,
+                closeAfterDelete: true,
+                recreateForm: true,
+                msg: "Are you sure you want to delete Student... ? ",
+                afterComplete: function (response) {
+                    if (response.responseText) {
+                        alert(response.responseText);
+                    }
+                }
+            });
+    });
+</script>
+<script type="text/javascript">
+$(function () {
+    $("#jqGrid_sub_category").jqGrid({
+        url: 'GetSubCategory',
+        datatype: 'json',
+        mtype: 'Get',
+        colNames: ['Categories', 'Categories'],
+        colModel: [
+            //{ key: true, hidden: false, name: 'SubCategoryId', index: 'SubCategoryId', editable: true },
+             { key: false, name: 'CategoryName', index: 'CategoryName', editable: true },
+            { key: false, name: 'SubCategoryName', index: 'SubCategoryName', editable: true }
+        ],
+        pager: jQuery('#jqControls_sub_subcategory'),
+        rowNum: 10,
+        rowList: [10, 20, 30, 40, 50],
+        height: '100%',
+        viewrecords: true,
+        caption: 'SubCategory Records',
+        emptyrecords: 'No SubCategory Records are Available to Display',
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            Id: "0"
+        },
+        autowidth: true,
+        multiselect: false
+    }).navGrid('#jqControls_sub_subcategory', { edit: true, add: false, del: true, search: false, refresh: true },
+        {
+            zIndex: 100,
+            url: "EditSubCategory",
+            closeOnEscape: true,
+            closeAfterEdit: true,
+            recreateForm: true,
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        },{},
+        {
+            zIndex: 100,
+            url: "DeleteSubCategory",
+            closeOnEscape: true,
+            closeAfterDelete: true,
+            recreateForm: true,
+            msg: "Are you sure you want to delete Student... ? ",
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        });
+});
+</script>
+<script type="text/javascript">
+    $("#CategoryName").change(function () {
+        var categoryId = $('#CategoryName').val();
+     
+        $.ajax
+        ({
+            url: 'GetCategoryList',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                categoryID: categoryId
+            }),
+            success: function (result) {
+                $("#subdropdown").html("");
+                $("#subdropdown").append($('<option></option>').val(0).html('Select SubCategory'))
+                $.each($.parseJSON(result), function (i, city) {
+                    $("#subdropdown").append($('<option></option>').val(city.SubCategoryId).html(city.SubCategoryName))
+                })
+            },
+            error: function () {
+                $("#subdropdown").html("");
+                $("#subdropdown").append($('<option></option>').val(0).html('Select SubCategory'))
+            },
+        });
+        });
+</script>
+<script type="text/javascript">
+
+$(function () {
+    $("#jqGrid_product").jqGrid({
+        url: 'GetBrands',
+        datatype: 'json',
+        mtype: 'Get',
+        colNames: ['ID', 'BrandName'],
+        colModel: [
+            { key: true, hidden: false, name: 'BrandId', index: 'BrandId', editable: true },
+            { key: false, name: 'BrandName', index: 'BrandName', editable: true }
+        ],
+        pager: jQuery('#jqControls_product'),
+        rowNum: 10,
+        rowList: [10, 20, 30, 40, 50],
+        height: '100%',
+        viewrecords: true,
+        caption: 'Supplier Records',
+        emptyrecords: 'No Supplier Records are Available to Display',
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            Id: "0"
+        },
+        autowidth: true,
+        multiselect: false
+    }).navGrid('#jqControls', { edit: true, add:false, del: true, search: false, refresh: true },
+        {
+            zIndex: 100,
+            url: "Edit",
+            closeOnEscape: true,
+            closeAfterEdit: true,
+            recreateForm: true,
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        },
+        {
+            zIndex: 100,
+            url: "Delete",
+            closeOnEscape: true,
+            closeAfterDelete: true,
+            recreateForm: true,
+            msg: "Are you sure you want to delete Student... ? ",
+            afterComplete: function (response) {
+                if (response.responseText) {
+                    alert(response.responseText);
+                }
+            }
+        });
+});
 </script>
