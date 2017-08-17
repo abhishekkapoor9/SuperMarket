@@ -12,7 +12,6 @@ namespace SuperMarket.Models
         {
             this.Suppliers = new HashSet<Supplier>();
         }
-
         [Key]
         public int ProductId { get; set; }
         public string ProductName { get; set; }

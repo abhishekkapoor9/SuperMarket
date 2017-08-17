@@ -7,7 +7,7 @@ namespace SuperMarket.Models
 {
     public class EComsDBEntity : DbContext
     {
-        public EComsDBEntity(): base("EfqeDbContext")
+        public EComsDBEntity(): base("EfqresDbContext")
             {
             }
 
@@ -21,7 +21,7 @@ namespace SuperMarket.Models
         public virtual DbSet<OfferType> Offertypes { get; set; }
         public virtual DbSet<Order> orders { get; set; }
         public virtual DbSet<Product> products { get; set; }
-        public virtual DbSet<ProductAvailability> produtAvailabilitys { get; set; }
+        public virtual DbSet<ProductAvailability> produtAvailabilities { get; set; }
         public virtual DbSet<Rate> rates { get; set; }
         public virtual DbSet<SubCategory> subcategories { get; set; }
         public virtual DbSet<Supplier> suppliers { get; set; }
